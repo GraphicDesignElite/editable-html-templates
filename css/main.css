@@ -57,6 +57,9 @@ textarea {
 .box-padded{
   padding:30px; border:1px solid #ddd;
 }
+.box-padded-small{
+  padding:5px; border:1px solid #ddd;
+}
 .merge-field{
   background:rgba(255,255,255,0);
   transition:all .3s ease-in-out;
@@ -66,6 +69,9 @@ textarea {
 }
 .show-merged .merge-field.edited{
     background:red;
+}
+.centered{
+  text-align: center;
 }
 .no-bullets{
   list-style-type: none;
@@ -89,6 +95,7 @@ html.calibrate { margin: 0; border: 1px solid red; } /* In case we need to calib
    ========================================================================== */
 .container{max-width:990px;}
 h1,h2,h3,h4,h5{font-weight: bold;}
+h4{font-size:1.05em;}
 
 /* Interface Items */
 #header{background: #077CB6; width: 100%;}
@@ -98,6 +105,7 @@ h1,h2,h3,h4,h5{font-weight: bold;}
 #header-buttons li a{ display:inline-block; padding: 10px 10px; color:#fff;}
 .document{ margin-top:30px;}
 .document .container{background:#fff;}
+.document .container:last-child{border-bottom:100px solid #fff;}
 .document-header{ padding-top: 40px; padding-bottom: 40px; border-bottom:1px solid #efefef;}
 .document-header-details{text-align: right;}
 .document-header-details .phone-number{font-size:20px; font-weight: bold; margin: 0px;}
@@ -106,10 +114,17 @@ h1,h2,h3,h4,h5{font-weight: bold;}
 
 .ui-widget-overlay{background:#000; transition: all .3s ease-in-out;}
 .ui-draggable .ui-dialog-titlebar{background:none; border:none;}
+.ui-widget.ui-widget-content{position:fixed !important; z-index: 100000;}
 
 .jumbotron{border:1px solid #ddd; text-align: center; border-radius: 0px; background:#fff;}
 .revert-area-button{ transition: all .3s; display: inline-block; background:#077CB6; color:#fff; padding:10px; right: 100%; z-index: 10; top: 0px; position: absolute;}
 .revert-area-button:hover, .revert-area-button:focus{ color:#fff; background:#086c9d; }
+
+.checklist li{list-style-image:url('../img/checkmark.png'); line-height:30px;}
+.checklist li.todo{list-style-image:url('../img/checkmark-box.png'); line-height:30px;}
+.checklist li li{list-style-type:circle; list-style-image: none !important;}
+
+
 /* ==========================================================================
    Content Editable
    ========================================================================== */
@@ -467,7 +482,7 @@ h1,h2,h3,h4,h5{font-weight: bold;}
     h3 {
         page-break-after: avoid;
     }
-    p{font-size:21px;}
+    p, ul, li{font-size:21px;}
 
     [contenteditable="true"]:focus::before{
       display:none;
@@ -475,7 +490,9 @@ h1,h2,h3,h4,h5{font-weight: bold;}
     [contenteditable="true"].edited{border:0px}
     .document{ margin:0px; padding:0px; }
     .document-header{ padding-top: 0px; }
+    .document .container:last-child{border:none;}
     .document:after{display:none;}
     .merge-field.edited{ border:0px; background:none; }
     .revert-area-button{display:none;}
+    
 }
