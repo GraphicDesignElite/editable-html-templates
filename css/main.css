@@ -2,99 +2,59 @@
    Helper classes
    ========================================================================== */
 
-html {
-    color: #000;
-    font-size: 1em;
-    line-height: 1.4;
-    
-}
-body{
-  padding-top:80px;
-  background:#efefef;
-  font-size: 15px;
-}
-::-moz-selection {
-    background: #b3d4fc;
-    text-shadow: none;
-}
-::selection {
-    background: #b3d4fc;
-    text-shadow: none;
-}
-hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #ccc;
-    margin: 1em 0;
-    padding: 0;
-}
-fieldset {
-    border: 0;
-    margin: 0;
-    padding: 0;
-}
-textarea {
-    resize: vertical;
-}
-.hidden {
-    display: none !important;
-}
+html { color: #000; font-size: 1em; line-height: 1.4;}
+body{ padding-top:80px; background:#efefef; font-size: 15px; }
+::-moz-selection { background: #b3d4fc; text-shadow: none; }
+::selection { background: #b3d4fc; text-shadow: none;}
+hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc;  margin: 1em 0; padding: 0; }
+fieldset { border: 0; margin: 0; padding: 0; }
+textarea { resize: vertical; }
+.hidden { display: none !important; }
 .clearfix:before,
-.clearfix:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
-}
-.clearfix:after {
-    clear: both;
-}
-.pad-top{
-  padding-top:20px;
-}
-.pad-bottom{
-  padding-bottom:20px;
-}
-.box-padded{
-  padding:30px; border:1px solid #ddd;
-}
-.box-padded-small{
-  padding:5px; border:1px solid #ddd;
-}
-.merge-field{
-  background:rgba(255,255,255,0);
-  transition:all .3s ease-in-out;
-}
-.show-merged .merge-field{
-  background:yellow;
-}
-.show-merged .merge-field.edited{
-    background:red;
-}
-.centered{
-  text-align: center;
-}
-.no-bullets{
-  list-style-type: none;
-}
-@media only screen and (min-width: 35em) {
-    
-}
-
+.clearfix:after { content: " "; /* 1 */ display: table; /* 2 */ }
+.clearfix:after { clear: both; }
+.pad-top{ padding-top:20px; }
+.pad-bottom{ padding-bottom:20px; }
+.box-padded{ padding:30px; border:1px solid #ddd; }
+.box-padded-small{ padding:10px; border:1px solid #ddd; }
+.centered{ text-align: center; }
+.no-bullets{ list-style-type: none; }
+.inset-row{ margin-left:30px; }
 
 /* ==========================================================================
    Utilities
    ========================================================================== */
 
-
 html.calibrate { margin: 0; border: 1px solid red; } /* In case we need to calibrate the print edges */
 .page-break { page-break-before: always; break-before: always; } /* Create page breaks */
 *:focus {outline:none !important;}
+/* Merge Fields */
+.merge-field{ background: rgba(255,255,255,0); transition:all .3s ease-in-out;}
+.show-merged .merge-field{ background:yellow; }
+.show-merged .merge-field.edited{ background:red; }
+.show-merged #displayMerged{background:#fff;}
+/* Hand Editable Areas */
+.hand-editable, .hand-writable{display: inline-block;  position:relative; max-width:100%;}
+.hand-editable{ border-top:1px solid #000; bottom:-30px; padding-top:4px; } 
+.hand-writable{ border-bottom:1px solid #000; bottom:.3em; padding-bottom:0px; margin-bottom:0px;}
+
+.hand-editable.short, .hand-writable.short{ padding-right: 50px; }
+.hand-editable.medium, .hand-writable.medium{ padding-right: 120px; }
+.hand-editable.long, .hand-writable.long{ padding-right: 250px; }
+.hand-editable.extra-long, .hand-writable.extra-long{ padding-right: 350px; }
+.hand-editable.fill, .hand-writable.fill{width:100%;}
+.mixed-writables .hand-editable{ bottom: -18px; padding-top: 12px; }
+.side-by-side-box div{float:left; text-align: left; padding-right:40px;}
+
+.numbered-paragraph{ display: inline-block; width:60px; font-weight: bold; }
+.align-numbered-paragraph{ margin-left:60px;}
+.red{ color:red !important; }
 
 /* ==========================================================================
    Standard Styles.
    ========================================================================== */
 .container{max-width:990px;}
-h1,h2,h3,h4,h5{font-weight: bold;}
+h1,h2,h3,h4,h5{font-weight: bold; margin-top:10px;}
 h4{font-size:1.05em;}
 
 /* Interface Items */
@@ -105,18 +65,20 @@ h4{font-size:1.05em;}
 #header-buttons li a{ display:inline-block; padding: 10px 10px; color:#fff;}
 .document{ margin-top:30px;}
 .document .container{background:#fff;}
+.document .container:first-child{border-top:40px solid #fff;}
 .document .container:last-child{border-bottom:100px solid #fff;}
 .document-header{ padding-top: 40px; padding-bottom: 40px; border-bottom:1px solid #efefef;}
 .document-header-details{text-align: right;}
 .document-header-details .phone-number{font-size:20px; font-weight: bold; margin: 0px;}
 .document:after{ margin-top:30px; display:block; content: ''; width:100%; border-bottom:3px dashed #ccc;}
-.show-merged #displayMerged{background:#fff;}
+
 
 .ui-widget-overlay{background:#000; transition: all .3s ease-in-out;}
 .ui-draggable .ui-dialog-titlebar{background:none; border:none;}
 .ui-widget.ui-widget-content{position:fixed !important; z-index: 100000;}
 
 .jumbotron{border:1px solid #ddd; text-align: center; border-radius: 0px; background:#fff;}
+.jumbotron li h4{margin-bottom:0px;}
 .revert-area-button{ transition: all .3s; display: inline-block; background:#077CB6; color:#fff; padding:10px; right: 100%; z-index: 10; top: 0px; position: absolute;}
 .revert-area-button:hover, .revert-area-button:focus{ color:#fff; background:#086c9d; }
 
@@ -124,10 +86,26 @@ h4{font-size:1.05em;}
 .checklist li.todo{list-style-image:url('../img/checkmark-box.png'); line-height:30px;}
 .checklist li li{list-style-type:circle; list-style-image: none !important;}
 
+.letter-list{ counter-reset: my-counter; list-style-type: none; position:relative;}
+.letter-list li{padding-left:15px;}
+.letter-list li:before {font-weight:bold; content: "("counter(my-counter, lower-alpha) ") "; counter-increment: my-counter; position:absolute; left: 20px;}
 
+.undecorated-list{list-style-type: none;}
+
+.share-tables{width:100%;}
+.share-tables th{background:#efefef;}
+.share-tables td, .share-tables th{padding:5px;}
+.signature-boxes td{padding: 00px 30px 30px 30px;}
+.signature-boxes .hand-editable{ margin-top:50px; bottom: 0px;}
+
+
+.table-divs{display: table; width: 100%;}
+.table-divs div.col{display:table-row;}
+.table-divs div.col div{display:table-cell;}
 /* ==========================================================================
    Content Editable
    ========================================================================== */
+
 [contenteditable="true"]{
   border:1px solid #fff;
 }
@@ -145,7 +123,7 @@ h4{font-size:1.05em;}
   background: #fefde2;
 }
 [contenteditable="true"]:before{
-  content:"Editing Document...";
+  content:"Editing Document";
   color:#fff;
   display:inline-block;
   padding:10px;
@@ -160,8 +138,6 @@ h4{font-size:1.05em;}
 [contenteditable="true"]:focus::before{
   opacity:1;
 }
-
-
 /* ==========================================================================
    Medium Styles
    ========================================================================== */
@@ -421,6 +397,10 @@ h4{font-size:1.05em;}
     -webkit-transform: matrix(1, 0, 0, 1, 0, 0);
             transform: matrix(1, 0, 0, 1, 0, 0); } }
 
+/* ==========================================================================
+   Print Specific Style Overrides and Helperes
+   ========================================================================== */
+
 
 @media print, (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 1.25dppx), (min-resolution: 120dpi) { 
   [class*="col-sm-"] {
@@ -431,14 +411,13 @@ h4{font-size:1.05em;}
     .no-print{
       display:none;
     }
-    body{ padding:0px; margin:0px; }
+    body{ padding:0px; margin:0px; font-size:20px;}
     *,
     *:before,
     *:after,
     *:first-letter,
     *:first-line {
         background: transparent !important;
-        color: #000 !important; /* Black prints faster: */
         box-shadow: none !important;
         text-shadow: none !important;
     }
@@ -482,7 +461,8 @@ h4{font-size:1.05em;}
     h3 {
         page-break-after: avoid;
     }
-    p, ul, li{font-size:21px;}
+    p, ul, li{font-size:20px;}
+    p, ul, li, a, h1, h2, h3, h4, h5{ color: #000 !important; /* Black prints faster: */} 
 
     [contenteditable="true"]:focus::before{
       display:none;
@@ -490,9 +470,12 @@ h4{font-size:1.05em;}
     [contenteditable="true"].edited{border:0px}
     .document{ margin:0px; padding:0px; }
     .document-header{ padding-top: 0px; }
-    .document .container:last-child{border:none;}
+    .document .container:last-child, .document .container:first-child{border:none;}
     .document:after{display:none;}
     .merge-field.edited{ border:0px; background:none; }
     .revert-area-button{display:none;}
-    
+    .red{ color:red !important; font-size:.9em; }
+    .mixed-writables .hand-editable{ bottom: -18px; padding-top: 5px; }
+    .share-tables th{background:#efefef;}
+
 }
